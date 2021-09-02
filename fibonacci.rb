@@ -9,7 +9,26 @@ def fibs(num)
   num == 1 ? fibonacci.first.digits : fibonacci
 end
 
-puts "digit --> fibonacci numbers"
-(1..10).each do |digit|
-  puts "#{digit} --> #{fibs(digit)}"
+def fibs_rec(num)
+  # https://stackoverflow.com/a/36415667
+  return [0] if num < 2
+  return [0, 1] if num < 3
+
+  memo = fibs_rec(num - 1)
+  memo.push(memo[num - 2] + memo[num - 3])
+  memo
+end
+
+
+puts "Iterative Fibonacci"
+puts "Term --> Fibonacci numbers"
+(1..10).each do |term|
+  puts "#{term.to_s.rjust(2)} #{"-->".center(7)} #{fibs(term)}"
+end
+puts ""
+
+puts "Recursive Fibonacci"
+puts "Term --> Fibonacci numbers"
+(1..10).each do |term|
+  puts "#{term.to_s.rjust(2)} #{"-->".center(7)} #{fibs_rec(term)}"
 end
