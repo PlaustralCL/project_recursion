@@ -16,7 +16,6 @@ def fibs_rec(num)
 
   memo = fibs_rec(num - 1)
   memo.push(memo[num - 2] + memo[num - 3])
-  memo
 end
 
 
