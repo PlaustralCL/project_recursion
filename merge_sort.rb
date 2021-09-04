@@ -15,7 +15,8 @@ end
 
 def merge(a, b)
   temp_ary = []
-  while !a.empty? && !b.empty?
+
+  until a.empty? || b.empty?
     if a.first > b.first
       temp_ary << b.first
       b.shift
@@ -25,21 +26,29 @@ def merge(a, b)
     end
   end
 
-  while !a.empty?
-    temp_ary << a.first
-    a.shift
-  end
-
-  while !b.empty?
-    temp_ary << b.first
-    b.shift
-  end
+  merge_a(a, temp_ary)
+  merge_b(b, temp_ary)
 
   temp_ary
 end
 
+def merge_a(a, temp_ary)
+  until a.empty?
+    temp_ary << a.first
+    a.shift
+  end
+  temp_ary
+end
 
-test_array1 = (0..9).to_a.shuffle
+def merge_b(b, temp_ary)
+  until b.empty?
+    temp_ary << b.first
+    b.shift
+  end
+  temp_ary
+end
+
+test_array1 = (1..9).to_a.shuffle
 puts "Merge sort testing"
 puts "test array: #{test_array1}"
 puts "expect: #{test_array1.sort}"
