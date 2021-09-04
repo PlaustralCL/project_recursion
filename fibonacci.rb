@@ -22,12 +22,12 @@ end
 puts "Iterative Fibonacci"
 puts "Term --> Fibonacci numbers"
 (1..10).each do |term|
-  puts "#{term.to_s.rjust(2)} #{"-->".center(7)} #{fibs(term)}"
+  puts "#{term.to_s.rjust(2)} #{'-->'.center(7)} #{fibs(term)}"
 end
 puts ""
 
 puts "Recursive Fibonacci"
 puts "Term --> Fibonacci numbers"
 (1..10).each do |term|
-  puts "#{term.to_s.rjust(2)} #{"-->".center(7)} #{fibs_rec(term)}"
+  puts "#{term.to_s.rjust(2)} #{'-->'.center(7)} #{fibs_rec(term)}"
 end
